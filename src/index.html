@@ -14,20 +14,22 @@
       <h1 class="header--game wrapper">Rock Paper or Scissors The Game</h1>
     </header>
     <main class="wrapper">
-      <h2 class="select">Please Select rock paper or scissors</h2>
+      <h2 class="result"></h2>
       <div class="hands">
-        <button class="hand" data-hand="rock">🪨</button>
-        <button class="hand" data-hand="paper">📰</button>
-        <button class="hand" data-hand="scissors">✂️</button>
+        <button class="hand" data-hand="r">🪨</button>
+        <button class="hand" data-hand="p">📰</button>
+        <button class="hand" data-hand="s">✂️</button>
       </div>
       <div class="dashboard wrapper">
         <h3 class="selected">
-          you: <span class="selected__player">rock? |</span> computer:
-          <span class="selected__computer">rock?</span>
+          user:<span class="selected__player"></span> computer:<span
+            class="selected__computer"
+          ></span>
         </h3>
         <div class="Scores">
-          <span class="scores__player">Player: 0</span>
-          <span class="scores__computer">Computer: 0</span>
+          <p>Player:<span class="scores__player">0</span></p>
+
+          <p>Computer:<span class="scores__computer">0</span></p>
         </div>
       </div>
     </main>

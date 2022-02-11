@@ -1,64 +1,102 @@
+let result = document.querySelector(".result");
+const btn__rock = document.querySelector("[data-hand='r']");
+const btn__paper = document.querySelector("[data-hand='p']");
+const btn__scissors = document.querySelector("[data-hand='s']");
+let computerScoreDisplay = document.querySelector(".scores__computer");
+let playerScoreDisplay = document.querySelector(".scores__player");
+let userSelection = document.querySelector(".selected__player");
+let computerSelection = document.querySelector(".selected__computer");
+
 function computerPlayer() {
-  let handOptions = ["rock", "paper", "scissors"];
+  let handOptions = ["r", "p", "s"];
 
   let computerHand =
     handOptions[Math.floor(Math.random() * handOptions.length)];
   return computerHand;
 }
 
-function checkWinner(playerHand, computerHand) {
-  if (computerHand === playerHand) {
-    return "It's a tie!";
-  }
-  if (computerHand === "rock") {
-    if (playerHand === "scissors") {
-      return "Computer wins!";
-    } else {
-      return "You win!";
-    }
-  }
-  if (computerHand === "paper") {
-    if (playerHand === "rock") {
-      return "Computer wins!";
-    } else {
-      return "You win!";
-    }
-  }
+const convertToWord = (letter) => {
+  if (letter === "r") return "Rock";
+  if (letter === "p") return "Paper";
+  return "Scissors";
+};
 
-  if (computerHand === "scissors") {
-    if (playerHand === "paper") {
-      return "Computer wins!";
-    } else {
-      return "You win!";
-    }
+function userWin(user, computer) {
+  result.innerHTML = `You win! ${convertToWord(user)} beats ${convertToWord(
+    computer
+  )}`;
+  playerScoreDisplay.innerText++;
+}
+
+function computerWin(user, computer) {
+  result.innerHTML = `You lose! ${convertToWord(
+    computer
+  )} beats ${convertToWord(user)}`;
+  computerScoreDisplay.innerText++;
+}
+
+function tie(user, computer) {
+  result.innerHTML = `It's a tie! ${convertToWord(user)} equals ${convertToWord(
+    computer
+  )}`;
+}
+
+function displayHand(user, computer) {
+  userSelection.innerText = convertToWord(user);
+  computerSelection.innerText = convertToWord(computer);
+}
+
+function game(userChoice) {
+  let computerHand = computerPlayer();
+  switch (userChoice + computerHand) {
+    case "rs":
+    case "pr":
+    case "sp":
+      userWin(userChoice, computerHand);
+      displayHand(userChoice, computerHand);
+      break;
+    case "rp":
+    case "ps":
+    case "sr":
+      computerWin(computerHand, userChoice);
+      displayHand(userChoice, computerHand);
+
+      break;
+    case "rr":
+    case "pp":
+    case "ss":
+      tie();
+      displayHand(userChoice, computerHand);
+
+      break;
   }
 }
 
-function playGame() {
-  let playerScore = 0;
-  let computerScore = 0;
-  for (let i = 0; playerScore || computerScore <= 5; i++) {
-    // let playerHand = prostylempt("Rock, paper, or scissors?");
-    let computerHand = computerPlayer();
-    let result = checkWinner(playerHand, computerHand);
-    if (result === "You win!") {
-      playerScore++;
-    } else if (result === "Computer wins!") {
-      computerScore++;
-    }
-    console.log(
-      `%c Player: ${playerHand} vs Computer: ${computerHand} | ${result}
-      Score: Player: ${playerScore} Computer: ${computerScore}`,
-      "color: gold; font-size: 16px;"
-    );
-    if (playerScore === 5) {
-      console.log(`You win the game!`);
-      break;
-    }
-    if (computerScore === 5) {
-      console.log(`Computer wins the game!`);
-      break;
-    }
+const checkPoints = () => {
+  if (playerScoreDisplay.innerText === "5") {
+    result.innerHTML = "You win!";
+    playerScoreDisplay.innerText = 0;
+    computerScoreDisplay.innerText = 0;
+  } else if (computerScoreDisplay.innerText === "5") {
+    result.innerHTML = "You lose!";
+    playerScoreDisplay.innerText = 0;
+    computerScoreDisplay.innerText = 0;
   }
+};
+
+function playRound() {
+  btn__rock.addEventListener("click", (e) => {
+    game("r");
+    checkPoints();
+  });
+  btn__paper.addEventListener("click", (e) => {
+    game("p");
+    checkPoints();
+  });
+  btn__scissors.addEventListener("click", (e) => {
+    game("s");
+    checkPoints();
+  });
 }
-playGame();
+
+playRound();

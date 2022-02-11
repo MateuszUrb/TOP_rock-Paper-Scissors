@@ -24,7 +24,7 @@ body {
   font-family: "Press Start 2P", cursive, sans-serif;
 }
 
-.select {
+.result {
   margin-top: 1em;
   font-family: "Press Start 2P", cursive, sans-serif;
   font-size: 1.5rem;
@@ -67,6 +67,14 @@ body {
 
 .selected {
   text-align: center;
+}
+
+.selected__player,
+.selected__computer {
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  color: red;
 }
 
 .Scores {
