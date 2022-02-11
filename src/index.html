@@ -5,9 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="./index.js" defer></script>
+    <link rel="stylesheet" href="./styles.css" />
+
     <title>Rock🪨 Paper📰 Scissors✂️</title>
   </head>
   <body>
-    <h1>The Rock paper and Scissors game</h1>
+    <header class="header">
+      <h1 class="header--game wrapper">Rock Paper or Scissors The Game</h1>
+    </header>
+    <main class="wrapper">
+      <h2 class="select">Please Select rock paper or scissors</h2>
+      <div class="hands">
+        <button class="hand" data-hand="rock">🪨</button>
+        <button class="hand" data-hand="paper">📰</button>
+        <button class="hand" data-hand="scissors">✂️</button>
+      </div>
+      <div class="dashboard wrapper">
+        <h3 class="selected">
+          you: <span class="selected__player">rock? |</span> computer:
+          <span class="selected__computer">rock?</span>
+        </h3>
+        <div class="Scores">
+          <span class="scores__player">Player: 0</span>
+          <span class="scores__computer">Computer: 0</span>
+        </div>
+      </div>
+    </main>
   </body>
 </html>

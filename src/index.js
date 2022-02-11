@@ -38,7 +38,7 @@ function playGame() {
   let playerScore = 0;
   let computerScore = 0;
   for (let i = 0; playerScore || computerScore <= 5; i++) {
-    let playerHand = prompt("Rock, paper, or scissors?");
+    // let playerHand = prostylempt("Rock, paper, or scissors?");
     let computerHand = computerPlayer();
     let result = checkWinner(playerHand, computerHand);
     if (result === "You win!") {

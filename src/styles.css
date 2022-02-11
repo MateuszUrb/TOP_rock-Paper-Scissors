@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+*,
+*::after,
+::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: rgb(0, 18, 64);
+}
+
+.wrapper {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.header {
+  background-color: #f1f1f1;
+  padding: 20px;
+  text-align: center;
+  font-family: "Press Start 2P", cursive, sans-serif;
+}
+
+.select {
+  margin-top: 1em;
+  font-family: "Press Start 2P", cursive, sans-serif;
+  font-size: 1.5rem;
+  text-align: center;
+  color: #fff;
+  letter-spacing: 0.1em;
+}
+
+.hands {
+  display: flex;
+  height: 50vh;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 10px;
+}
+
+.hand {
+  font-size: 10rem;
+  border: 1px solid #fff;
+  background: transparent;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.1s ease-out;
+}
+
+.hand:active {
+  background: rgba(117, 119, 7, 0.582);
+  border: 1px solid rgb(0, 61, 146);
+}
+
+.dashboard {
+  font-family: "Press Start 2P", cursive, sans-serif;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.selected {
+  text-align: center;
+}
+
+.Scores {
+  margin-top: 2em;
+  display: flex;
+  justify-content: space-between;
+}
