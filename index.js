@@ -85,15 +85,15 @@ const checkPoints = () => {
 };
 
 function playRound() {
-  btn__rock.addEventListener("click", (e) => {
+  btn__rock.addEventListener("click", () => {
     game("r");
     checkPoints();
   });
-  btn__paper.addEventListener("click", (e) => {
+  btn__paper.addEventListener("click", () => {
     game("p");
     checkPoints();
   });
-  btn__scissors.addEventListener("click", (e) => {
+  btn__scissors.addEventListener("click", () => {
     game("s");
     checkPoints();
   });
